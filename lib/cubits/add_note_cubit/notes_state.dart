@@ -1,4 +1,4 @@
-part of 'notes_cubit.dart';
+part of 'add_note_cubit.dart';
 
 abstract class NotesState {}
 
