@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 import 'package:notes_app/widgets/custome_button.dart';
 
@@ -17,6 +21,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subTitle;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -46,14 +51,34 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 40,
           ),
-          CustomButton(
-            onTab: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<NotesCubit, NotesState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading ? true : false,
+                onTab: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+
+                    var currentDate = DateTime.now();
+                    var formattedDate =
+                        DateFormat('dd/mm/yyyy').format(currentDate);
+
+                    var noteModel = NoteModel(
+                        title: title!,
+                        subTitle: subTitle!,
+                        date: formattedDate,
+                        color: Colors.purple.value);
+                    BlocProvider.of<NotesCubit>(context).addNote(noteModel);
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Note Added Successfully'),
+                      backgroundColor: Colors.green,
+                    ));
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           const SizedBox(height: 30),

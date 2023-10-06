@@ -1,5 +1,8 @@
+import 'dart:js';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
+import '../cubits/notes_List_cubit.dart';
 
 class EditNoteScreenBody extends StatelessWidget {
   const EditNoteScreenBody({Key? key}) : super(key: key);
