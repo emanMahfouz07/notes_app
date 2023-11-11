@@ -18,14 +18,12 @@ class NotesItem extends StatelessWidget {
           );
         }));
       },
-      child: AnimatedContainer(
+      child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
           color: Color(note.color),
           borderRadius: BorderRadius.circular(16),
         ),
-        duration: const Duration(seconds: 2),
-        curve: Curves.bounceInOut,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -52,7 +50,7 @@ class NotesItem extends StatelessWidget {
                   );
                 },
                 icon: const Icon(
-                  Icons.delete,
+                  Icons.delete_outline,
                   color: Colors.black,
                   size: 28,
                 ),

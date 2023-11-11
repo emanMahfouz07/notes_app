@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:notes_app/constants.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -29,16 +30,17 @@ class CustomTextField extends StatelessWidget {
           return null;
         }
       },
-      cursorColor: kPrimaryColor,
+      cursorColor: Get.isDarkMode ? kPrimaryColor : kPrimaryLightColor,
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: kPrimaryColor,
+        hintStyle: TextStyle(
+          color: Get.isDarkMode ? kPrimaryColor : kPrimaryLightColor,
         ),
         border: buildBorder(),
         enabledBorder: buildBorder(),
-        focusedBorder: buildBorder(kPrimaryColor),
+        focusedBorder:
+            buildBorder(Get.isDarkMode ? kPrimaryColor : kPrimaryLightColor),
       ),
     );
   }
@@ -46,7 +48,8 @@ class CustomTextField extends StatelessWidget {
   OutlineInputBorder buildBorder([color]) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: color ?? Colors.white),
+      borderSide: BorderSide(
+          color: Get.isDarkMode ? kPrimaryColor : kPrimaryLightColor),
     );
   }
 }

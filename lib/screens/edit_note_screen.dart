@@ -5,6 +5,8 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_app_bar.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
+import '../widgets/edit_note_colors_list.dart';
+
 class EditNoteScreen extends StatefulWidget {
   const EditNoteScreen({
     Key? key,
@@ -59,6 +61,12 @@ class _EditNoteScreenState extends State<EditNoteScreen> {
                 subTitle = value;
               },
               maxLines: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: EditNoteColorsList(
+                note: widget.note,
+              ),
             ),
           ],
         ),
