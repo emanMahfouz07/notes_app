@@ -1,16 +1,15 @@
-# notes_app
+# Notes App
 
-"A new Flutter project."
+A simple and intuitive Flutter application for taking and managing notes.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- 📝 Add new notes with titles and body text.
+- 🔍 Search notes by keywords.
+- 🎨 Color-code notes for better organization.
+- 📴 Works offline with local storage using Hive.
+- 📱 Built using Flutter and Cubit state management.
 
-A few resources to get you started if this is your first Flutter project:
+## Demo
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🎥 [Watch Notes App Demo](https://drive.google.com/file/d/1D8riuRrRmy10B-TxpM_YEBFkbLNt6PCb/view?usp=sharing)
